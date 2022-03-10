@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nurlytan/Desktop/AndroidStudio/Projects/AndroidToArduinoBluetooth/app/src/main/res/layout/activity_control.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Nurlytan/Desktop/AndroidStudio/Projects/AndroidToArduinoBluetooth/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Nurlytan/Desktop/AndroidStudio/Projects/AndroidToArduinoBluetooth/app/src/main/res/layout/list_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Nurlytan/Desktop/AndroidStudio/Projects/AndroidToArduinoBluetooth/app/src/main/res/menu/control_menu.xml" value="0.27447916666666666" />
       </map>
     </option>
   </component>

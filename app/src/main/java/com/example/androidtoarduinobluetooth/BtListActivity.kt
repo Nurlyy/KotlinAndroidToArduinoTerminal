@@ -5,13 +5,14 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidtoarduinobluetooth.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class BtListActivity : AppCompatActivity(), RcAdapter.Listener {
     private var btAdapter: BluetoothAdapter? = null
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: RcAdapter
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private fun init(){
         val btManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         btAdapter = btManager.adapter
-        adapter = RcAdapter()
+        adapter = RcAdapter(this)
         binding.rcView.layoutManager = LinearLayoutManager(this)
         binding.rcView.adapter = adapter
         getPairedDevices()
@@ -40,5 +41,17 @@ class MainActivity : AppCompatActivity() {
             tempList.add(ListItem(it.name, it.address))
         }
         adapter.submitList(tempList)
+    }
+
+    companion object{
+        const val DEVICE_KEY = "device key"
+    }
+
+    override fun onClick(item: ListItem) {
+        val i = Intent().apply{
+            putExtra(DEVICE_KEY, item)
+        }
+        setResult(RESULT_OK, i)
+        finish()
     }
 }
